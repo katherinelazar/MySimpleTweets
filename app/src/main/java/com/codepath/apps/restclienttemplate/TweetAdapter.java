@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.codepath.apps.restclienttemplate.models.ParseRelativeData;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.util.List;
@@ -49,6 +50,11 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         holder.tvUsername.setText(tweet.user.name);
         holder.tvBody.setText(tweet.body);
 
+        ParseRelativeData parseRelativeData = new ParseRelativeData();
+
+        holder.tvTime.setText(parseRelativeData.getRelativeTimeAgo(tweet.createdAt));
+
+
         Glide.with(context).load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
     }
 
@@ -63,6 +69,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
 
         public TextView tvBody;
 
+        public TextView tvTime;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -72,6 +80,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
             ivProfileImage = (ImageView) itemView.findViewById(R.id.ivProfileImage);
             tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
+            tvTime = (TextView) itemView.findViewById(R.id.tvTime);
         }
 
 
