@@ -35,6 +35,10 @@ public class TimelineActivity extends AppCompatActivity {
         return true;
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+    }
+
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        if (item.getItemId() == R.id.)
