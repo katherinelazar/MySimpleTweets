@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/miCompose"
-        android:icon="@drawable/ic_launcher2"
+        android:icon="@drawable/ic_action_name"
         app:showAsAction="ifRoom"
         android:title="Compose">
     </item>
@@ -13,4 +13,5 @@
         app:showAsAction="ifRoom|withText"
         android:title="Profile">
     </item>
+
 </menu>

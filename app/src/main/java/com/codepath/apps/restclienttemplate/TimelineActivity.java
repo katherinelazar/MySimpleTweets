@@ -15,6 +15,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -35,14 +36,21 @@ public class TimelineActivity extends AppCompatActivity {
         return true;
     }
 
+    // ActivityOne.java, time to handle the result of the sub-activity
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // REQUEST_CODE is defined above
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
 
+
+            // Extract name value from result extras
+            Tweet name = Parcels.unwrap(data.getParcelableExtra("tweet"));
+            // Toast the name to display temporarily on screen
+            tweets.add(0, name);
+            tweetAdapter.notifyItemInserted(0);
+            rvTweets.scrollToPosition(0);
+        }
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        if (item.getItemId() == R.id.)
-//    }
 
     public void launchComposeView() {
         // first parameter is the context, second is the class of the activity to launch
@@ -57,12 +65,9 @@ public class TimelineActivity extends AppCompatActivity {
 
             launchComposeView();
             return true;
-
-        }
-        else {
+        } else {
             return super.onOptionsItemSelected(item);
         }
-
     }
 
     @Override
@@ -98,7 +103,7 @@ public class TimelineActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
 //                Log.d("TwitterClient", response.toString());
                 // iterate through json array, deserialize json
-                for (int i = 0; i <response.length(); i ++) {
+                for (int i = 0; i < response.length(); i++) {
                     // convert each object to tweet model
 
                     // add tweet model to data source

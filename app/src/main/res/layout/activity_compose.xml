@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
-        app:counterMaxLength="10"
+        app:counterMaxLength="240"
         app:counterTextAppearance="@style/counterText"
         app:counterOverflowTextAppearance="@style/counterOverride">
 
@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:onClick="composeTweet"
         android:layout_marginTop="105dp"
         android:text="Submit" />
 
