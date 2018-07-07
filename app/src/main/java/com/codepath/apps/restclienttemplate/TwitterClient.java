@@ -18,13 +18,15 @@ import com.loopj.android.http.RequestParams;
  * Add methods for each relevant endpoint in the API.
  * 
  * NOTE: You may want to rename this object based on the service i.e TwitterClient or FlickrClient
- * 
+ * WvZBLaC4nZAeYFQ6XsubM5qC7
+ * nPVukHIovs91zwokzBWeWqzxl0qRrPpGhG8Hay28jcFryaedO2
  */
+
 public class TwitterClient extends OAuthBaseClient {
 	public static final BaseApi REST_API_INSTANCE = TwitterApi.instance(); // Change this
 	public static final String REST_URL = "https://api.twitter.com/1.1"; // Change this, base API URL
-	public static final String REST_CONSUMER_KEY = "WvZBLaC4nZAeYFQ6XsubM5qC7";       // Change this
-	public static final String REST_CONSUMER_SECRET = "nPVukHIovs91zwokzBWeWqzxl0qRrPpGhG8Hay28jcFryaedO2"; // Change this
+	public static final String REST_CONSUMER_KEY = "wLev7ppSYEm6TuBetr7NjqSkA";       // Change this
+	public static final String REST_CONSUMER_SECRET = "0JcGikujd9rL2jIGVTWpt8K2v9hVNxVWLlC50ktJGDeMNHbko7"; // Change this
 
 	// Landing page to indicate the OAuth flow worked in case Chrome for Android 25+ blocks navigation back to the app.
 	public static final String FALLBACK_URL = "https://codepath.github.io/android-rest-client-template/success.html";

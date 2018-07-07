@@ -44,17 +44,22 @@ public class ComposeActivity extends AppCompatActivity {
 
         editText = (EditText) findViewById(R.id.editText);
         button = (Button) findViewById(R.id.button);
-
+        button.setEnabled(false);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                if(s.toString().trim().length() == 0){
+                    button.setEnabled(false);
 
+                } else {
+                    button.setEnabled(true);
+                }
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                if(s.toString().trim().length() <= 0 || s.toString().trim().length() > 240){
+                if(s.toString().trim().length() < 1 || s.toString().trim().length() > 140){
                     button.setEnabled(false);
 
                 } else {
