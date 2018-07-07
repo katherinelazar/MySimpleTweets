@@ -121,7 +121,6 @@ public class TimelineActivity extends AppCompatActivity {
 
     }
 
-
     public void fetchTimelineAsync(int page) {
         // Send the network request to fetch the updated data
         // `client` here is an instance of Android Async HTTP
@@ -136,29 +135,16 @@ public class TimelineActivity extends AppCompatActivity {
                 // iterate through json array, deserialize json
                 for (int i = 0; i < response.length(); i++) {
                     // convert each object to tweet model
-
                     // add tweet model to data source
                     // notify the adapter that we've added an item
                     try {
                         Tweet tweet = Tweet.fromJSON(response.getJSONObject(i));
                         tweets.add(tweet);
                         tweetAdapter.notifyItemInserted(tweets.size() - 1);
-//            @Override
-//            public void onSuccess{
-//                // Remember to CLEAR OUT old items before appending in the new ones
-//
-//                for (int i = 0; i < json.length(); i++) {
-//                    try {
-//                        tweets.add(Tweet.fromJSON(json.getJSONObject(i)));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
-
-//                tweetAdapter.addAll(newTweets);
-
-
-                // Now we call setRefreshing(false) to signal refresh has finished
                 swipeContainer.setRefreshing(false);
             }
         });
